@@ -15,24 +15,27 @@ public class Book {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	public Book(String title, String isbn, String publisher, Set<Author> boo) {
-		this.title = title;
-		this.isbn = isbn;
-		this.publisher = publisher;
-		this.boo = boo;
-	}
-	
-	
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
 	private String title;
 	private String isbn;
 	private String publisher;
 	
 	@ManyToMany
-	private Set<Author> boo = new HashSet();
+	private Set<Author> book = new HashSet();
+	
+	public Book(){
+	
+	}
+	
+	public Book(String title, String isbn, String publisher, Set<Author> book) {
+		this.title = title;
+		this.isbn = isbn;
+		this.publisher = publisher;
+		this.book = book;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getTitle() {
 		return title;
@@ -58,17 +61,13 @@ public class Book {
 		this.publisher = publisher;
 	}
 	
-	public Set<Author> getBoo() {
-		return boo;
+	public Set<Author> getBook() {
+		return book;
 	}
 	
-	public void setBoo(Set<Author> boo) {
-		this.boo = boo;
+	public void setBook(Set<Author> book) {
+		this.book = book;
 	}
-	
-	
-	
-	
 	
 	public Long getId() {
 		return id;
